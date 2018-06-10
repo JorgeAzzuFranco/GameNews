@@ -3,6 +3,7 @@ package com.includeazzu.gamenews;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +14,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.includeazzu.gamenews.Fragmentos.CSGOFragment;
+import com.includeazzu.gamenews.Fragmentos.ConfigCuentaFragment;
+import com.includeazzu.gamenews.Fragmentos.DOTAFragment;
+import com.includeazzu.gamenews.Fragmentos.LOLFragment;
+import com.includeazzu.gamenews.Fragmentos.NoticiasRecientesFragment;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+                    LOLFragment.OnNavigationItemSelectedListener,
+                    DOTAFragment.OnNavigationItemSelectedListener,
+                    CSGOFragment.OnNavigationItemSelectedListener,
+                    ConfigCuentaFragment.OnNavigationItemSelectedListener,
+                    NoticiasRecientesFragment.OnNavigationItemSelectedListener{
+
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,19 +93,27 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        boolean seleccionado = false;
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.noticiasRecientes) {
+            fragment = new NoticiasRecientesFragment();
+            //seleccionado = true;
+        } else if (id == R.id.lol) {
+            fragment = new LOLFragment();
+            seleccionado = true;
+        } else if (id == R.id.dota) {
+            fragment = new DOTAFragment();
+            seleccionado = true;
+        } else if (id == R.id.csgo) {
+            fragment = new CSGOFragment();
+            seleccionado = true;
+        } else if (id == R.id.confCuenta) {
+            fragment = new ConfigCuentaFragment();
+            seleccionado = true;
+        }
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if(seleccionado) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.contenido,fragment).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
