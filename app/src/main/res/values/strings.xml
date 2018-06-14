@@ -21,5 +21,6 @@
     <string name="msj_err">Sucedio un error</string>
     <string name="samplenoticia">SampleNoticia</string>
     <string name="ajustes">Ajustes</string>
+    <string name="SampleDesc">Este es un texto de prueba para el CardView</string>
 
 </resources>

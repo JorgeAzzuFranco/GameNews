@@ -13,7 +13,7 @@ public class Noticia {
    //@PrimaryKey(autoGenerate = true)
    @SerializedName("_id")
    @Expose
-    private int idNoticia;
+    private String idNoticia;
 
     //@ColumnInfo(name = "titulo")
     @SerializedName("title")
@@ -45,8 +45,12 @@ public class Noticia {
     @Expose
     private String juego;
 
+    /*@SerializedName("__v")
+    @Expose
+    private int v;*/
+
     //Constructor
-    public Noticia(int idNoticia, String tituloNoticia, String imagenNoticia, String fechaNoticia, String descNoticia, String cuerpoNoticia, String juego) {
+    public Noticia(String idNoticia, String tituloNoticia, String imagenNoticia, String fechaNoticia, String descNoticia, String cuerpoNoticia, String juego) {
         this.idNoticia = idNoticia;
         this.tituloNoticia = tituloNoticia;
         this.imagenNoticia = imagenNoticia;
@@ -58,11 +62,11 @@ public class Noticia {
 
     //Setters y Getters
 
-    public int getIdNoticia() {
+    public String getIdNoticia() {
         return idNoticia;
     }
 
-    public void setIdNoticia(int idNoticia) {
+    public void setIdNoticia(String idNoticia) {
         this.idNoticia = idNoticia;
     }
 
@@ -114,4 +118,11 @@ public class Noticia {
         this.juego = juego;
     }
 
+    /*public int getV() {
+        return v;
+    }
+
+    public void setV(int v) {
+        this.v = v;
+    }*/
 }

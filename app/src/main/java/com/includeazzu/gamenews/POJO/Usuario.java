@@ -8,6 +8,8 @@ import android.arch.persistence.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 //@Entity(tableName = "usuario")
 public class Usuario {
 
@@ -29,10 +31,10 @@ public class Usuario {
     //@ColumnInfo(name = "noticiasFav")
     @SerializedName("favoriteNews")
     @Expose
-    private String noticiasFavUser;
+    private List<Noticia> noticiasFavUser;
 
     //Constructor
-    public Usuario(int idUser, String user, String passUser, String noticiasFavUser) {
+    public Usuario(int idUser, String user, String passUser, List<Noticia> noticiasFavUser) {
         this.idUser = idUser;
         this.user = user;
         this.passUser = passUser;
@@ -65,11 +67,11 @@ public class Usuario {
         this.passUser = passUser;
     }
 
-    public String getNoticiasFavUser() {
+    public List<Noticia> getNoticiasFavUser() {
         return noticiasFavUser;
     }
 
-    public void setNoticiasFavUser(String noticiasFavUser) {
+    public void setNoticiasFavUser(List<Noticia> noticiasFavUser) {
         this.noticiasFavUser = noticiasFavUser;
     }
 }

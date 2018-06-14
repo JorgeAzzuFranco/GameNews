@@ -1,4 +1,4 @@
-package com.includeazzu.gamenews.Fragmentos;
+package com.includeazzu.gamenews;
 
 
 import android.os.Bundle;

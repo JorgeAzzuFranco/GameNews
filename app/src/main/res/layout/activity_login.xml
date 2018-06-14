@@ -8,20 +8,21 @@
     android:gravity="center"
     android:layout_margin="8dp">
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imagen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/gamenewslogo"
-        android:layout_margin="24dp"/>
+        android:layout_margin="24dp"/>-->
 
     <EditText
         android:id="@+id/editUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/usuario"
+        android:text="00074216"
         android:layout_margin="4dp"
         android:layout_below="@+id/imagen"/>
 
@@ -30,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/contrase_a"
+        android:text="00074216"
         android:inputType="textPassword"
         android:layout_below="@+id/editUser"
         android:layout_margin="4dp"/>

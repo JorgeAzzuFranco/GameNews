@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:id="@+id/cv_noticias">
+    android:layout_height="wrap_content"
+    android:id="@+id/cv_noticias"
+    android:layout_margin="4dp">
 
-    <ImageView
-        android:id="@+id/imagen"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@color/colorAccent"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtNoticia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/samplenoticia"
-        android:textSize="26dp"
-        android:textColor="@color/negro"
-        android:layout_below="@+id/imagen"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="4dp"/>
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@color/colorAccent"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/txtnoticia"
+            android:layout_width="@dimen/CVtitulo"
+            android:layout_height="wrap_content"
+            android:text="@string/samplenoticia"
+            android:textSize="@dimen/cvTitulo"
+            android:textColor="@color/negro"
+            android:layout_below="@+id/imagen"
+            android:layout_margin="@dimen/espacio"/>
+
+        <TextView
+            android:id="@+id/txtDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtnoticia"
+            android:layout_marginLeft="@dimen/espacio"
+            android:layout_marginRight="@dimen/espacio"
+            android:layout_marginBottom="@dimen/espacio"
+            android:textSize="15dp"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:text="@string/SampleDesc"/>
+
+        <ImageButton
+            android:id="@+id/btnfav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/estrella_vacia"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/espacio"
+            android:layout_below="@+id/imagen"
+            android:background="@color/blanco"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

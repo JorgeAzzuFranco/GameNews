@@ -14,21 +14,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.includeazzu.gamenews.Fragmentos.CSGOFragment;
-import com.includeazzu.gamenews.Fragmentos.ConfigCuentaFragment;
-import com.includeazzu.gamenews.Fragmentos.DOTAFragment;
-import com.includeazzu.gamenews.Fragmentos.LOLFragment;
 import com.includeazzu.gamenews.Fragmentos.NoticiasRecientesFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-                    LOLFragment.OnNavigationItemSelectedListener,
-                    DOTAFragment.OnNavigationItemSelectedListener,
-                    CSGOFragment.OnNavigationItemSelectedListener,
                     ConfigCuentaFragment.OnNavigationItemSelectedListener,
                     NoticiasRecientesFragment.OnNavigationItemSelectedListener{
 
-    Fragment fragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,23 +86,24 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment fragment = null;
         boolean seleccionado = false;
 
         if (id == R.id.noticiasRecientes) {
             fragment = new NoticiasRecientesFragment();
-            //seleccionado = true;
+            seleccionado = true;
         } else if (id == R.id.lol) {
-            fragment = new LOLFragment();
-            seleccionado = true;
+
+            //seleccionado = true;
         } else if (id == R.id.dota) {
-            fragment = new DOTAFragment();
-            seleccionado = true;
+
+            //seleccionado = true;
         } else if (id == R.id.csgo) {
-            fragment = new CSGOFragment();
-            seleccionado = true;
+
+            //seleccionado = true;
         } else if (id == R.id.confCuenta) {
             fragment = new ConfigCuentaFragment();
-            seleccionado = true;
+            //seleccionado = true;
         }
 
         if(seleccionado) {
