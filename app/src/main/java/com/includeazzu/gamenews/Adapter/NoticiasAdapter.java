@@ -1,5 +1,7 @@
 package com.includeazzu.gamenews.Adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.includeazzu.gamenews.DetallesNoticiaActivity;
 import com.includeazzu.gamenews.POJO.Noticia;
 import com.includeazzu.gamenews.R;
 
@@ -33,10 +36,29 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
     }
 
     @Override
-    public void onBindViewHolder(NoticiasAdapter.NoticiasViewHolder holder, int position) {
+    public void onBindViewHolder(NoticiasAdapter.NoticiasViewHolder holder, final int position) {
         holder.tituloNoticia.setText(noticias[position].getTituloNoticia());
         holder.descNoticia.setText(noticias[position].getDescNoticia());
         //holder.img.getResources(noticias.get(position).getImagenNoticia());
+
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent detalleNoticia = new Intent(v.getContext(), DetallesNoticiaActivity.class);
+
+                String titulo = noticias[position].getTituloNoticia();
+                String fecha = noticias[position].getFechaNoticia();
+                String cuerpo = noticias[position].getCuerpoNoticia();
+                String juego = noticias[position].getJuego();
+
+                detalleNoticia.putExtra("titulo", titulo);
+                detalleNoticia.putExtra("fecha", fecha);
+                detalleNoticia.putExtra("cuerpo", cuerpo);
+                detalleNoticia.putExtra("juego", juego);
+
+                v.getContext().startActivity(detalleNoticia);
+            }
+        });
 
     }
 
@@ -44,6 +66,7 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
     public int getItemCount() {
         return noticias.length;
     }
+
 
     public class NoticiasViewHolder extends RecyclerView.ViewHolder {
 

@@ -22,5 +22,7 @@
     <string name="samplenoticia">SampleNoticia</string>
     <string name="ajustes">Ajustes</string>
     <string name="SampleDesc">Este es un texto de prueba para el CardView</string>
+    <string name="noticias_recientes">Noticias recientes</string>
+    <string name="juego">Juego:</string>
 
 </resources>

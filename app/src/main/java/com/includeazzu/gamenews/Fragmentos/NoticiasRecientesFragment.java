@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -26,7 +27,7 @@ public class NoticiasRecientesFragment extends Fragment {
 
     View noticiasRecientes;
     RecyclerView recycler;
-    LinearLayoutManager glm;
+    GridLayoutManager glm;
     SharedPreferences prefs;
     GameNewsAPI gameNewsAPI;
     String token;
@@ -49,7 +50,21 @@ public class NoticiasRecientesFragment extends Fragment {
 
         recycler = noticiasRecientes.findViewById(R.id.mi_recycler);
         recycler.setHasFixedSize(true);
-        glm = new LinearLayoutManager(getContext().getApplicationContext());
+        glm = new GridLayoutManager(getContext().getApplicationContext(), 2);
+
+        glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+
+            @Override
+            public int getSpanSize(int position) {
+                if(position % 3 == 0) {
+                    return 2;
+                }
+                else {
+                    return 1;
+                }
+            }
+        });
+
         recycler.setLayoutManager(glm);
 
         gameNewsAPI = ApiUtiles.getGameNewsAPI();
@@ -64,7 +79,6 @@ public class NoticiasRecientesFragment extends Fragment {
             public void onResponse(Call<Noticia[]> call, Response<Noticia[]> response) {
                 if (response.isSuccessful()) {
                     noti = response.body();
-                    Log.d("ALGOINFO", "titulo: "+noti[0].getTituloNoticia());
                     adapter = new NoticiasAdapter(noti);
                     recycler.setAdapter(adapter);
 

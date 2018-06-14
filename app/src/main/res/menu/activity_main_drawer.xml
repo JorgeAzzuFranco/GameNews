@@ -7,7 +7,7 @@
         <item
             android:id="@+id/noticiasRecientes"
             android:icon="@drawable/news"
-            android:title="Import" />
+            android:title="@string/noticias_recientes" />
         <item
             android:id="@+id/lol"
             android:icon="@drawable/logo_lol"

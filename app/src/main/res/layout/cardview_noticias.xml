@@ -18,7 +18,7 @@
 
         <TextView
             android:id="@+id/txtnoticia"
-            android:layout_width="@dimen/CVtitulo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/samplenoticia"
             android:textSize="@dimen/cvTitulo"

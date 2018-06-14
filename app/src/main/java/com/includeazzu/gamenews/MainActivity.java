@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.includeazzu.gamenews.Fragmentos.ConfigCuentaFragment;
 import com.includeazzu.gamenews.Fragmentos.NoticiasRecientesFragment;
 
 public class MainActivity extends AppCompatActivity
