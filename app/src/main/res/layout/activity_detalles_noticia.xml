@@ -1,61 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DetallesNoticiaActivity"
-    android:layout_margin="@dimen/espacio">
+    android:padding="@dimen/espacio">
 
-    <ImageView
-        android:id="@+id/imagenNoti"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:src="@color/colorAccent"/>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tituloNoti"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="26dp"
-        android:textColor="@color/negro"
-        android:text="@string/samplenoticia"
-        android:layout_below="@id/imagenNoti"
-        android:layout_marginTop="@dimen/espacio"/>
+        <ImageView
+            android:id="@+id/imagenNoti"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:src="@color/colorAccent"/>
 
-    <TextView
-        android:id="@+id/fechaNoti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="12/12/12"
-        android:layout_below="@+id/tituloNoti"
-        android:layout_marginTop="@dimen/espacio"/>
+        <TextView
+            android:id="@+id/tituloNoti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="26dp"
+            android:textColor="@color/negro"
+            android:text="@string/samplenoticia"
+            android:layout_below="@id/imagenNoti"
+            android:layout_marginTop="@dimen/espacio"/>
 
-    <TextView
-        android:id="@+id/cuerpoNoti"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fechaNoti"
-        android:layout_marginTop="@dimen/espacio"
-        android:text="@string/SampleDesc"/>
+        <TextView
+            android:id="@+id/fechaNoti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/12/12"
+            android:layout_below="@+id/tituloNoti"
+            android:layout_marginTop="@dimen/espacio"/>
 
-    <TextView
-        android:id="@+id/txtJuego"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/juego"
-        android:layout_below="@+id/cuerpoNoti"
-        android:layout_marginTop="@dimen/espacio"
-        android:textColor="@color/negro"/>
+        <TextView
+            android:id="@+id/cuerpoNoti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fechaNoti"
+            android:layout_marginTop="@dimen/espacio"
+            android:text="@string/SampleDesc"/>
 
-    <TextView
-        android:id="@+id/juegoNoti"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/league_of_legends"
-        android:layout_below="@+id/cuerpoNoti"
-        android:layout_toRightOf="@+id/txtJuego"
-        android:layout_marginTop="@dimen/espacio"
-        android:layout_marginLeft="@dimen/espacio"/>
+        <TextView
+            android:id="@+id/txtJuego"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/juego"
+            android:layout_below="@+id/cuerpoNoti"
+            android:layout_marginTop="@dimen/espacio"
+            android:textColor="@color/negro"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/juegoNoti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/league_of_legends"
+            android:layout_below="@+id/cuerpoNoti"
+            android:layout_toRightOf="@+id/txtJuego"
+            android:layout_marginTop="@dimen/espacio"
+            android:layout_marginLeft="@dimen/espacio"/>
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -4,13 +4,16 @@ package com.includeazzu.gamenews.POJO;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 //@Entity(tableName = "noticia")
 public class Noticia {
 
-   //@PrimaryKey(autoGenerate = true)
+   //@PrimaryKey
+   //@NonNull
    @SerializedName("_id")
    @Expose
     private String idNoticia;
@@ -44,10 +47,6 @@ public class Noticia {
     @SerializedName("game")
     @Expose
     private String juego;
-
-    /*@SerializedName("__v")
-    @Expose
-    private int v;*/
 
     //Constructor
     public Noticia(String idNoticia, String tituloNoticia, String imagenNoticia, String fechaNoticia, String descNoticia, String cuerpoNoticia, String juego) {
@@ -117,12 +116,4 @@ public class Noticia {
     public void setJuego(String juego) {
         this.juego = juego;
     }
-
-    /*public int getV() {
-        return v;
-    }
-
-    public void setV(int v) {
-        this.v = v;
-    }*/
 }
