@@ -5,6 +5,8 @@ import com.includeazzu.gamenews.POJO.Noticia;
 import com.includeazzu.gamenews.POJO.Token;
 
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -26,7 +28,7 @@ public interface GameNewsAPI {
     //Para las noticias
     //Lista de noticias
     @GET("/news")
-    Call<Noticia[]> getNoticias(@Header("Authorization: ") String token);
+    Call<List<Noticia>> getNoticias(@Header("Authorization: ") String token);
 
     //Fin de noticias
 

@@ -22,9 +22,9 @@ import retrofit2.adapter.rxjava.Result;
 
 public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.NoticiasViewHolder> {
 
-    Noticia[] noticias;
+    List<Noticia> noticias;
 
-    public NoticiasAdapter(Noticia[] noticias) {
+    public NoticiasAdapter(List<Noticia> noticias) {
         this.noticias = noticias;
     }
 
@@ -37,8 +37,8 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
 
     @Override
     public void onBindViewHolder(NoticiasAdapter.NoticiasViewHolder holder, final int position) {
-        holder.tituloNoticia.setText(noticias[position].getTituloNoticia());
-        holder.descNoticia.setText(noticias[position].getDescNoticia());
+        holder.tituloNoticia.setText(noticias.get(position).getTituloNoticia());
+        holder.descNoticia.setText(noticias.get(position).getDescNoticia());
         //holder.img.getResources(noticias.get(position).getImagenNoticia());
 
         holder.card.setOnClickListener(new View.OnClickListener() {
@@ -46,10 +46,10 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
             public void onClick(View v) {
                 Intent detalleNoticia = new Intent(v.getContext(), DetallesNoticiaActivity.class);
 
-                String titulo = noticias[position].getTituloNoticia();
-                String fecha = noticias[position].getFechaNoticia();
-                String cuerpo = noticias[position].getCuerpoNoticia();
-                String juego = noticias[position].getJuego();
+                String titulo = noticias.get(position).getTituloNoticia();
+                String fecha = noticias.get(position).getFechaNoticia();
+                String cuerpo = noticias.get(position).getCuerpoNoticia();
+                String juego = noticias.get(position).getJuego();
 
                 detalleNoticia.putExtra("titulo", titulo);
                 detalleNoticia.putExtra("fecha", fecha);
@@ -64,7 +64,7 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
 
     @Override
     public int getItemCount() {
-        return noticias.length;
+        return noticias.size();
     }
 
 

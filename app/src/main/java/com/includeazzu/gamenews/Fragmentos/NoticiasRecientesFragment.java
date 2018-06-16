@@ -18,6 +18,8 @@ import com.includeazzu.gamenews.Adapter.NoticiasAdapter;
 import com.includeazzu.gamenews.POJO.Noticia;
 import com.includeazzu.gamenews.R;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,7 +33,7 @@ public class NoticiasRecientesFragment extends Fragment {
     SharedPreferences prefs;
     GameNewsAPI gameNewsAPI;
     String token;
-    Noticia[] noti;
+    List<Noticia> noti;
     NoticiasAdapter adapter;
 
     public NoticiasRecientesFragment() {
@@ -74,9 +76,9 @@ public class NoticiasRecientesFragment extends Fragment {
     }
 
     private void cargarNoticias(String token) {
-        gameNewsAPI.getNoticias(token).enqueue(new Callback<Noticia[]>() {
+        gameNewsAPI.getNoticias(token).enqueue(new Callback<List<Noticia>>() {
             @Override
-            public void onResponse(Call<Noticia[]> call, Response<Noticia[]> response) {
+            public void onResponse(Call<List<Noticia>> call, Response<List<Noticia>> response) {
                 if (response.isSuccessful()) {
                     noti = response.body();
                     adapter = new NoticiasAdapter(noti);
@@ -89,7 +91,7 @@ public class NoticiasRecientesFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Noticia[]> call, Throwable t) {
+            public void onFailure(Call<List<Noticia>> call, Throwable t) {
                 Log.d("Error", t.toString() + "");
             }
         });
