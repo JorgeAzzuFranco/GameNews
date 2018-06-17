@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity
                     OverwatchFragment.OnFragmentInteractionListener,
                     CSGOFragment.OnFragmentInteractionListener{
 
-
+    Fragment fragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,10 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        fragment = new NoticiasRecientesFragment();
         navigationView.setNavigationItemSelectedListener(this);
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenido,fragment).commit();
     }
 
     @Override
@@ -93,7 +96,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Fragment fragment = null;
         boolean seleccionado = false;
 
         if (id == R.id.noticiasRecientes) {
