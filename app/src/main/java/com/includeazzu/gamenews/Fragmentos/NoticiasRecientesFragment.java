@@ -86,11 +86,11 @@ public class NoticiasRecientesFragment extends Fragment {
                     if (NoticiasDatabase.myDB.getAll().size() == 0){
                     noti = response.body();
                     NoticiasDatabase.myDB.addNoticia(noti);
-                    adapter = new NoticiasAdapter(NoticiasDatabase.myDB.getAll());
+                    adapter = new NoticiasAdapter(NoticiasDatabase.myDB.getAll(), getContext());
                     recycler.setAdapter(adapter);
                     }
                     else{
-                        adapter = new NoticiasAdapter(NoticiasDatabase.myDB.getAll());
+                        adapter = new NoticiasAdapter(NoticiasDatabase.myDB.getAll(), getContext());
                         recycler.setAdapter(adapter);
                     }
 

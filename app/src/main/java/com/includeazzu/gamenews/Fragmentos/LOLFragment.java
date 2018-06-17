@@ -81,7 +81,7 @@ public class LOLFragment extends Fragment {
             public void onResponse(Call<List<Noticia>> call, Response<List<Noticia>> response) {
                 if (response.isSuccessful()) {
                     noti = response.body();
-                    adapter = new NoticiasAdapter(noti);
+                    adapter = new NoticiasAdapter(noti, getContext());
                     recycler.setAdapter(adapter);
 
                 } else {

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class DetallesNoticiaActivity extends AppCompatActivity {
 
     ImageView imagen;
@@ -22,15 +24,18 @@ public class DetallesNoticiaActivity extends AppCompatActivity {
         cuerpo = findViewById(R.id.cuerpoNoti);
         juego = findViewById(R.id.juegoNoti);
 
+
         strTitulo = getIntent().getStringExtra("titulo");
         strFecha = getIntent().getStringExtra("fecha");
         strCuerpo = getIntent().getStringExtra("cuerpo");
         strJuego = getIntent().getStringExtra("juego");
+        strImagen = getIntent().getStringExtra("img");
 
         titulo.setText(strTitulo);
         fecha.setText(strFecha);
         cuerpo.setText(strCuerpo);
         juego.setText(strJuego);
+        Picasso.with(this).load(strImagen).into(imagen);
 
 
     }

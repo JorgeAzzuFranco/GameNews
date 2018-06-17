@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.includeazzu.gamenews.DetallesNoticiaActivity;
 import com.includeazzu.gamenews.POJO.Noticia;
 import com.includeazzu.gamenews.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +24,11 @@ import retrofit2.adapter.rxjava.Result;
 public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.NoticiasViewHolder> {
 
     List<Noticia> noticias;
+    Context ctx;
 
-    public NoticiasAdapter(List<Noticia> noticias) {
+    public NoticiasAdapter(List<Noticia> noticias, Context ctx) {
         this.noticias = noticias;
+        this.ctx = ctx;
     }
 
     @Override
@@ -40,6 +43,7 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
         holder.tituloNoticia.setText(noticias.get(position).getTituloNoticia());
         holder.descNoticia.setText(noticias.get(position).getDescNoticia());
         //holder.img.getResources(noticias.get(position).getImagenNoticia());
+        Picasso.with(ctx).load(noticias.get(position).getImagenNoticia()).into(holder.img);
 
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,11 +54,13 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
                 String fecha = noticias.get(position).getFechaNoticia();
                 String cuerpo = noticias.get(position).getCuerpoNoticia();
                 String juego = noticias.get(position).getJuego();
+                String imga = noticias.get(position).getImagenNoticia();
 
                 detalleNoticia.putExtra("titulo", titulo);
                 detalleNoticia.putExtra("fecha", fecha);
                 detalleNoticia.putExtra("cuerpo", cuerpo);
                 detalleNoticia.putExtra("juego", juego);
+                detalleNoticia.putExtra("img", imga);
 
                 v.getContext().startActivity(detalleNoticia);
             }
