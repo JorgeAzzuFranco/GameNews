@@ -15,12 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.includeazzu.gamenews.Fragmentos.ConfigCuentaFragment;
+import com.includeazzu.gamenews.Fragmentos.LOLFragment;
 import com.includeazzu.gamenews.Fragmentos.NoticiasRecientesFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
                     ConfigCuentaFragment.OnNavigationItemSelectedListener,
-                    NoticiasRecientesFragment.OnNavigationItemSelectedListener{
+                    NoticiasRecientesFragment.OnNavigationItemSelectedListener,
+                    LOLFragment.OnNavigationItemSelectedListener{
 
 
 
@@ -94,8 +96,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new NoticiasRecientesFragment();
             seleccionado = true;
         } else if (id == R.id.lol) {
-
-            //seleccionado = true;
+            fragment = new LOLFragment();
+            seleccionado = true;
         } else if (id == R.id.dota) {
 
             //seleccionado = true;
