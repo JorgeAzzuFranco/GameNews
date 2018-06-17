@@ -17,12 +17,14 @@ import android.view.MenuItem;
 import com.includeazzu.gamenews.Fragmentos.ConfigCuentaFragment;
 import com.includeazzu.gamenews.Fragmentos.LOLFragment;
 import com.includeazzu.gamenews.Fragmentos.NoticiasRecientesFragment;
+import com.includeazzu.gamenews.Fragmentos.OverwatchFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
                     ConfigCuentaFragment.OnNavigationItemSelectedListener,
                     NoticiasRecientesFragment.OnNavigationItemSelectedListener,
-                    LOLFragment.OnNavigationItemSelectedListener{
+                    LOLFragment.OnNavigationItemSelectedListener,
+                    OverwatchFragment.OnFragmentInteractionListener{
 
 
 
@@ -99,14 +101,14 @@ public class MainActivity extends AppCompatActivity
             fragment = new LOLFragment();
             seleccionado = true;
         } else if (id == R.id.dota) {
-
-            //seleccionado = true;
+            fragment = new OverwatchFragment();
+            seleccionado = true;
         } else if (id == R.id.csgo) {
 
-            //seleccionado = true;
+
         } else if (id == R.id.confCuenta) {
             fragment = new ConfigCuentaFragment();
-            //seleccionado = true;
+            seleccionado = true;
         }
 
         if(seleccionado) {
