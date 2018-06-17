@@ -14,8 +14,8 @@
             android:title="@string/league_of_legends" />
         <item
             android:id="@+id/dota"
-            android:icon="@drawable/logo_dota"
-            android:title="@string/dota" />
+            android:icon="@drawable/logo_ow"
+            android:title="@string/overwatch" />
         <item
             android:id="@+id/csgo"
             android:icon="@drawable/logo_csgo"

@@ -24,5 +24,8 @@
     <string name="SampleDesc">Este es un texto de prueba para el CardView</string>
     <string name="noticias_recientes">Noticias recientes</string>
     <string name="juego">Juego:</string>
+    <string name="gna">Game News App</string>
+    <string name="by_jorge_franco_00074216">By: Jorge Franco, 00074216</string>
+    <string name="overwatch">Overwatch</string>
 
 </resources>
