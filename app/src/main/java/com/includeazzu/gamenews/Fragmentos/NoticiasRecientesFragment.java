@@ -1,6 +1,7 @@
 package com.includeazzu.gamenews.Fragmentos;
 
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import com.includeazzu.gamenews.APIGameNews.ApiUtiles;
 import com.includeazzu.gamenews.APIGameNews.GameNewsAPI;
 import com.includeazzu.gamenews.Adapter.NoticiasAdapter;
+import com.includeazzu.gamenews.DBRoom.NoticiasDatabase;
 import com.includeazzu.gamenews.POJO.Noticia;
 import com.includeazzu.gamenews.R;
 
@@ -69,6 +71,7 @@ public class NoticiasRecientesFragment extends Fragment {
 
         recycler.setLayoutManager(glm);
 
+        NoticiasDatabase.getInstance(getContext());
         gameNewsAPI = ApiUtiles.getGameNewsAPI();
         cargarNoticias(token);
 
@@ -80,9 +83,16 @@ public class NoticiasRecientesFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Noticia>> call, Response<List<Noticia>> response) {
                 if (response.isSuccessful()) {
+                    if (NoticiasDatabase.myDB.getAll().size() == 0){
                     noti = response.body();
-                    adapter = new NoticiasAdapter(noti);
+                    NoticiasDatabase.myDB.addNoticia(noti);
+                    adapter = new NoticiasAdapter(NoticiasDatabase.myDB.getAll());
                     recycler.setAdapter(adapter);
+                    }
+                    else{
+                        adapter = new NoticiasAdapter(NoticiasDatabase.myDB.getAll());
+                        recycler.setAdapter(adapter);
+                    }
 
                 } else {
                     int statusCode = response.code();

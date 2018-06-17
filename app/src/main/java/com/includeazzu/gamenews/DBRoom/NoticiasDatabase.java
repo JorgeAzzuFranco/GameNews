@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.includeazzu.gamenews.POJO.Noticia;
 
@@ -30,7 +31,7 @@ public class NoticiasDatabase extends SQLiteOpenHelper {
 
     public static NoticiasDatabase myDB = null;
     private Context context;
-    SQLiteDatabase db;
+    public SQLiteDatabase db;
 
     public static NoticiasDatabase getInstance(Context context) {
         if(myDB == null){
@@ -52,10 +53,10 @@ public class NoticiasDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLA_DB);
+        //db.execSQL("DROP TABLE IF EXISTS " + TABLA_DB);
     }
 
-    public boolean addNoticia(List<Noticia> n){
+    public void addNoticia(List<Noticia> n){
         ContentValues val = new ContentValues();
 
         for (int i = 0; i < n.size(); i++){
@@ -68,8 +69,6 @@ public class NoticiasDatabase extends SQLiteOpenHelper {
             val.put(CAMPO_JUEGO, n.get(i).getJuego());
             db.insert(TABLA_DB, null, val);
         }
-
-        return true;
     }
 
     public boolean delNoticias(SQLiteDatabase db){
@@ -77,7 +76,7 @@ public class NoticiasDatabase extends SQLiteOpenHelper {
         return true;
     }
 
-    public List<Noticia> getAll(SQLiteDatabase db){
+    public List<Noticia> getAll(){
 
         String[] campos = {CAMPO_ID, CAMPO_TITULONOTICIA, CAMPO_IMAGENNOTICIA,
         CAMPO_FECHANOTICIA, CAMPO_DESCNOTICIA, CAMPO_CUERPONOTICIA, CAMPO_JUEGO};
@@ -89,11 +88,12 @@ public class NoticiasDatabase extends SQLiteOpenHelper {
         cursor.moveToFirst();
 
         while(cursor.moveToNext()){
-            noti.add(new Noticia(cursor.getString(1),cursor.getString(2),
-                    cursor.getString(3), cursor.getString(4),cursor.getString(5),
-                    cursor.getString(6), cursor.getString(7)));
+            noti.add(new Noticia(cursor.getString(0),cursor.getString(1),
+                    cursor.getString(2), cursor.getString(3),cursor.getString(4),
+                    cursor.getString(5), cursor.getString(6)));
         }
 
+        Log.d("TAG", "Obtiene las cosas de aqui");
         return noti;
     }
 
