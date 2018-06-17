@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.includeazzu.gamenews.Fragmentos.CSGOFragment;
 import com.includeazzu.gamenews.Fragmentos.ConfigCuentaFragment;
 import com.includeazzu.gamenews.Fragmentos.LOLFragment;
 import com.includeazzu.gamenews.Fragmentos.NoticiasRecientesFragment;
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity
                     ConfigCuentaFragment.OnNavigationItemSelectedListener,
                     NoticiasRecientesFragment.OnNavigationItemSelectedListener,
                     LOLFragment.OnNavigationItemSelectedListener,
-                    OverwatchFragment.OnFragmentInteractionListener{
+                    OverwatchFragment.OnFragmentInteractionListener,
+                    CSGOFragment.OnFragmentInteractionListener{
 
 
 
@@ -104,8 +106,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new OverwatchFragment();
             seleccionado = true;
         } else if (id == R.id.csgo) {
-
-
+            fragment = new CSGOFragment();
+            seleccionado = true;
         } else if (id == R.id.confCuenta) {
             fragment = new ConfigCuentaFragment();
             seleccionado = true;

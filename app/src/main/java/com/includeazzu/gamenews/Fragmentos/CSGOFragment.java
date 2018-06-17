@@ -1,8 +1,6 @@
 package com.includeazzu.gamenews.Fragmentos;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -25,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class OverwatchFragment extends Fragment {
+public class CSGOFragment extends Fragment {
 
     View view;
     RecyclerView recycler;
@@ -36,14 +34,14 @@ public class OverwatchFragment extends Fragment {
     List<Noticia> noti;
     NoticiasAdapter adapter;
 
-    public OverwatchFragment() {
+    public CSGOFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_overwatch, container, false);
+        view = inflater.inflate(R.layout.fragment_csgo, container, false);
 
         prefs = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
         token = prefs.getString("tokenpdm", "noToken");
@@ -75,7 +73,7 @@ public class OverwatchFragment extends Fragment {
     }
 
     private void cargarNoticias(String token) {
-        gameNewsAPI.getNoticiasJuegos(token, "overwatch").enqueue(new Callback<List<Noticia>>() {
+        gameNewsAPI.getNoticiasJuegos(token, "csgo").enqueue(new Callback<List<Noticia>>() {
             @Override
             public void onResponse(Call<List<Noticia>> call, Response<List<Noticia>> response) {
                 if (response.isSuccessful()) {
@@ -95,6 +93,7 @@ public class OverwatchFragment extends Fragment {
             }
         });
     }
+
 
     public interface OnFragmentInteractionListener {
     }
